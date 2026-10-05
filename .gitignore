@@ -1,0 +1,55 @@
+# ============================================================
+# .gitignore — PrevisaoConsumoVapor
+# Os dados foram migrados para Delta tables no Unity Catalog
+# (schema: workspace.previsao_vapor)
+# O Git contém apenas código: notebooks, README, .gitignore
+# ============================================================
+
+# --- Dados brutos (agora em Delta tables UC) ---
+0_raw/
+
+# --- Bronze (agora em Delta tables UC) ---
+1_bronze/
+
+# --- Silver (agora em Delta tables UC) ---
+2_silver/
+
+# --- Gold: dados e modelos (agora em Delta tables + UC Volume) ---
+3_gold/
+
+# --- Arquivos de dados genéricos ---
+*.csv
+*.txt
+*.joblib
+*.pkl
+*.parquet
+*.delta
+*.xlsx
+*.xls
+
+# --- Databricks / Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# --- Jupyter / Databricks ---
+.ipynb_checkpoints/
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+
+# --- Logs ---
+*.log
+
+# --- MLflow ---
+mlruns/
+mlartifacts/
