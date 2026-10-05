@@ -1,0 +1,24 @@
+# Data files - stored in UC Volumes (workspace.previsao_vapor)
+0_raw/
+1_bronze/
+2_silver/*.csv
+3_gold/
+
+# Model files - stored in UC Volume (workspace.previsao_vapor.models)
+*.joblib
+*.pkl
+
+# Data file types
+*.csv
+*.txt
+*.parquet
+*.delta
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# Databricks
+*.log
