@@ -433,7 +433,7 @@ df_save = df_model.reset_index()
 
 # Escrever como Delta table
 spark.createDataFrame(df_save).write \
-    .mode("overwrite").saveAsTable("workspace.previsao_vapor.silver_prepared")
+    .mode("overwrite").option("overwriteSchema", "true").saveAsTable("workspace.previsao_vapor.silver_prepared")
 
 print(f"Tabela preparada salva: workspace.previsao_vapor.silver_prepared")
 print(f"Shape: {df_save.shape}")

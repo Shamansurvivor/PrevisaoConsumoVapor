@@ -378,11 +378,12 @@ if INICIO_BIOMASSA is not None:
 # Salvar tabela diária no Delta table (Unity Catalog)
 # ============================================================
 d_out = d.copy()
+d_out.index.name = 'datetime'
 d_out['periodo'] = np.where(
     (INICIO_BIOMASSA is not None) & (d_out.index >= (INICIO_BIOMASSA.normalize() if INICIO_BIOMASSA is not None else d_out.index.max())),
     'com_biomassa', 'so_gas')
 
 spark.createDataFrame(d_out.reset_index()).write \
-    .mode("overwrite").saveAsTable("workspace.previsao_vapor.silver_diario")
+    .mode("overwrite").option("overwriteSchema", "true").saveAsTable("workspace.previsao_vapor.silver_diario")
 print(f"Salvo: workspace.previsao_vapor.silver_diario | {d_out.shape}")
 display(d_out.reset_index().tail(10))
